@@ -1,0 +1,35 @@
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+model Character {
+  id             Int     @id @default(autoincrement())
+  name           String  @unique
+  characterName  String?
+  class          String
+  level          Int
+  strength       Int
+  defense        Int
+
+  magicItems     MagicItem[]
+}
+
+model MagicItem {
+  id             Int     @id @default(autoincrement())
+  name           String  @unique
+  type           String
+  strength       Int
+  defense        Int
+
+  characterId Int?
+  character  Character?  @relation(fields: [characterId], references: [id])
+
+}
