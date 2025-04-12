@@ -7,7 +7,11 @@ Acesse a documentação completa através do Swagger:
 
 
 Para rodar o projeto, siga as etapas abaixo:
+
 -> Instale as dependências:  
+
    `npm install`
+   
 -> Rode o projeto:  
+
    `npm run start:dev`
